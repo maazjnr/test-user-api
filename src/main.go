@@ -47,6 +47,14 @@ func runAllUserInfo() {
 	}
 
 	userInfo = append(userInfo, users4)
+
+	users5 := UserData{
+		Name:  "Junior",
+		Email: "jr@example.com",
+		Age:   22,
+	}
+
+	userInfo = append(userInfo, users5)
 }
 
 func getUserDataHandler(w http.ResponseWriter, r *http.Request) {
