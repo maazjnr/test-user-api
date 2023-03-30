@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -40,6 +39,14 @@ func runAllUserInfo() {
 	}
 
 	userInfo = append(userInfo, users3)
+
+	users4 := UserData{
+		Name:  "Maaz",
+		Email: "mz@example.com",
+		Age:   21,
+	}
+
+	userInfo = append(userInfo, users4)
 }
 
 func getUserDataHandler(w http.ResponseWriter, r *http.Request) {
@@ -53,28 +60,7 @@ func handleRoute() {
 	http.ListenAndServe(":8000", router)
 }
 
-func mapArr() {
-
-	var mapArrays = make(map[string]int)
-	mapArrays["Tokyo event for flutter"] = 0
-	mapArrays["London Conference event"] = 1
-	mapArrays["Rwanda vacation"] = 3
-
-	fmt.Printf("this the list of maps we have %v\n", mapArrays)
-
-	var arraySlice = [5]int{1, 2, 3, 4, 5}
-	var arraySlice2 = [5]int{6, 7, 8, 9, 10}
-
-	slice1 := arraySlice[:4]
-	slice2 := arraySlice2[:3]
-
-	result := append(slice1, slice2...)
-
-	fmt.Printf("Printing out %v ", result)
-}
-
 func main() {
-	fmt.Println("Creating user details...")
 	runAllUserInfo()
 	handleRoute()
 }
